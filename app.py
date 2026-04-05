@@ -10,22 +10,35 @@ st.set_page_config(page_title="Big Data Dashboard", layout="wide")
 # ---------- LIGHT MODE (FIXED) ----------
 font_color = "#111827"
 
+# ---------- CUSTOM CSS ----------
 st.markdown("""
 <style>
+
+/* Remove Streamlit header/menu */
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+[data-testid="stToolbar"] {display: none !important;}
+
+/* App Background */
 .stApp {
     background-color: #f5f7fb;
 }
 
+/* Main Container */
 .block-container {
     background: white;
     padding: 2rem;
     border-radius: 12px;
+    padding-top: 1rem;
 }
 
+/* Sidebar */
 section[data-testid="stSidebar"] {
     background: #eef2ff;
 }
 
+/* Cards */
 .card {
     padding: 25px;
     border-radius: 18px;
@@ -39,6 +52,7 @@ section[data-testid="stSidebar"] {
     transform: translateY(-5px);
 }
 
+/* Text */
 h1 {
     color: #111827;
 }
@@ -46,6 +60,7 @@ h1 {
 h2, h3, p {
     color: #374151;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
