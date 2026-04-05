@@ -7,80 +7,47 @@ import numpy as np
 # ---------- PAGE CONFIG ----------
 st.set_page_config(page_title="Big Data Dashboard", layout="wide")
 
-# ---------- DARK MODE TOGGLE ----------
-mode = st.sidebar.toggle("🌙 Dark Mode", value=False)
-font_color = "#111827" if not mode else "white"
+# ---------- LIGHT MODE (FIXED) ----------
+font_color = "#111827"
 
-# ---------- UI ----------
-if not mode:
-    st.markdown("""
-    <style>
-    .stApp {
-        background-color: #f5f7fb;
-    }
+st.markdown("""
+<style>
+.stApp {
+    background-color: #f5f7fb;
+}
 
-    .block-container {
-        background: white;
-        padding: 2rem;
-        border-radius: 12px;
-    }
+.block-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+}
 
-    section[data-testid="stSidebar"] {
-        background: #eef2ff;
-    }
+section[data-testid="stSidebar"] {
+    background: #eef2ff;
+}
 
-    .card {
-        padding: 25px;
-        border-radius: 18px;
-        color: white;
-        text-align: center;
-        box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
-        transition: 0.3s;
-    }
+.card {
+    padding: 25px;
+    border-radius: 18px;
+    color: white;
+    text-align: center;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
 
-    .card:hover {
-        transform: translateY(-5px);
-    }
+.card:hover {
+    transform: translateY(-5px);
+}
 
-    h1 {
-        color: #111827;
-    }
+h1 {
+    color: #111827;
+}
 
-    h2, h3, p {
-        color: #374151;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-else:
-    st.markdown("""
-    <style>
-    .stApp {
-        background: linear-gradient(to right, #0f172a, #020617);
-    }
-
-    section[data-testid="stSidebar"] {
-        background: linear-gradient(to bottom, #1e293b, #334155);
-    }
-
-    .card {
-        padding: 25px;
-        border-radius: 18px;
-        color: white;
-        text-align: center;
-        box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
-        transition: 0.3s;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-    }
-
-    h1, h2, h3, p {
-        color: white;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+h2, h3, p {
+    color: #374151;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # ---------- LOAD DATA ----------
 @st.cache_data
@@ -236,10 +203,8 @@ fig4.update_yaxes(tickprefix="₹")
 
 st.plotly_chart(fig4, use_container_width=True)
 
-# ---------- SEPARATOR ----------
-st.markdown("---")
-
 # ---------- DOWNLOAD + TABLE ----------
+st.markdown("---")
 st.subheader("📥 Download & Data Table")
 
 st.download_button(
