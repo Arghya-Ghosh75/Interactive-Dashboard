@@ -166,7 +166,7 @@ st.subheader("📈 Revenue Trend (₹)")
 
 sales_trend = (
     filtered_df
-    .groupby(pd.Grouper(key="Order Date", freq="M"))["Sales"]
+    .groupby(pd.Grouper(key="Order Date", freq="MS"))["Sales"]
     .sum()
     .reset_index()
 )
