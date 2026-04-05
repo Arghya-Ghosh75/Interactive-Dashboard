@@ -222,7 +222,7 @@ predictions = model.predict(future_days)
 future_dates = pd.date_range(
     start=trend["Order Date"].max() + pd.Timedelta(days=30),
     periods=10,
-    freq="M"
+    freq="MS"
 )
 
 pred_df = pd.DataFrame({
