@@ -17,8 +17,14 @@ footer {visibility: hidden;}
 
 .block-container {
     background: white;
-    padding: 1.5rem;
+    padding-top: 0.5rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
     border-radius: 12px;
+}
+
+.main > div {
+    padding-left: 0rem !important;
 }
 
 section[data-testid="stSidebar"] {
@@ -34,8 +40,10 @@ section[data-testid="stSidebar"] {
 }
 
 h1 {
+    font-size: 24px !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
     color: #111827;
-    font-size: 28px;
 }
 
 h2, h3, p {
@@ -45,19 +53,20 @@ h2, h3, p {
 @media (max-width: 768px) {
 
     .block-container {
-        padding: 1rem !important;
+        padding-left: 0.8rem !important;
+        padding-right: 0.8rem !important;
     }
 
     h1 {
-        font-size: 22px !important;
+        font-size: 20px !important;
         text-align: left !important;
-        word-break: break-word;
+        white-space: normal !important;
     }
 
     .card {
-        padding: 18px;
         margin-bottom: 15px;
     }
+
 }
 </style>
 """, unsafe_allow_html=True)
@@ -99,7 +108,7 @@ filtered_df = df[
     (df["Order Date"] <= pd.to_datetime(date_range[1]))
 ]
 
-st.markdown("<h1>📊 InsightFlow Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='margin-left:0;'>📊 InsightFlow Dashboard</h1>", unsafe_allow_html=True)
 st.write(f"📦 Dataset Size: **{len(df):,} records**")
 
 total_sales = filtered_df["Sales"].sum()
