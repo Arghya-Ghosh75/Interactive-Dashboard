@@ -10,14 +10,13 @@ st.markdown("""
 <style>
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
-header {visibility: hidden;}
 
 .stApp {
     background-color: #f5f7fb;
 }
 
 .block-container {
-    padding-top: 2.5rem !important;
+    padding-top: 4rem !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
 }
@@ -35,22 +34,20 @@ section[data-testid="stSidebar"] {
 }
 
 h1 {
-    font-size: 24px !important;
-    margin-top: 10px !important;
+    font-size: 32px !important;
     color: #111827;
 }
 
 @media (max-width: 768px) {
 
     .block-container {
-        padding-top: 2rem !important;
+        padding-top: 3rem !important;
         padding-left: 0.8rem !important;
         padding-right: 0.8rem !important;
     }
 
     h1 {
-        font-size: 20px !important;
-        margin-top: 15px !important;
+        font-size: 26px !important;
     }
 
     .card {
