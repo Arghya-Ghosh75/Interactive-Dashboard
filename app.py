@@ -10,21 +10,16 @@ st.markdown("""
 <style>
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
+header {visibility: hidden;}
 
 .stApp {
     background-color: #f5f7fb;
 }
 
 .block-container {
-    background: white;
-    padding-top: 0.5rem !important;
+    padding-top: 2.5rem !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
-    border-radius: 12px;
-}
-
-.main > div {
-    padding-left: 0rem !important;
 }
 
 section[data-testid="stSidebar"] {
@@ -41,37 +36,29 @@ section[data-testid="stSidebar"] {
 
 h1 {
     font-size: 24px !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+    margin-top: 10px !important;
     color: #111827;
-}
-
-h2, h3, p {
-    color: #374151;
 }
 
 @media (max-width: 768px) {
 
     .block-container {
+        padding-top: 2rem !important;
         padding-left: 0.8rem !important;
         padding-right: 0.8rem !important;
     }
 
     h1 {
         font-size: 20px !important;
-        text-align: left !important;
-        white-space: normal !important;
+        margin-top: 15px !important;
     }
 
     .card {
         margin-bottom: 15px;
     }
-
 }
 </style>
 """, unsafe_allow_html=True)
-
-font_color = "#111827"
 
 @st.cache_data
 def load_data():
@@ -108,8 +95,7 @@ filtered_df = df[
     (df["Order Date"] <= pd.to_datetime(date_range[1]))
 ]
 
-st.markdown("<h1 style='margin-left:0;'>📊 InsightFlow Dashboard</h1>", unsafe_allow_html=True)
-st.write(f"📦 Dataset Size: **{len(df):,} records**")
+st.markdown("<h1>📊 InsightFlow Dashboard</h1>", unsafe_allow_html=True)
 
 total_sales = filtered_df["Sales"].sum()
 total_profit = filtered_df["Profit"].sum()
@@ -151,7 +137,6 @@ sales_trend = (
 )
 
 fig1 = px.area(sales_trend, x="Order Date", y="Sales")
-fig1.update_layout(font=dict(color=font_color))
 st.plotly_chart(fig1, use_container_width=True)
 
 st.subheader("🌍 Region Distribution")
